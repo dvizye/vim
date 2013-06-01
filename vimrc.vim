@@ -28,7 +28,11 @@
  augroup END
  
  " }}}
- 
+
+ " Set up wildmenu
+ set wildmenu
+ set wildmode=longest,list
+
  set tabstop=4 " Set tabs to 3 spaces to match python "
  set shiftwidth=4
  set expandtab
