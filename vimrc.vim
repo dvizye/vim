@@ -58,7 +58,13 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+" Tab navigation like Chrome
+nnoremap <S-C-Tab> :tabprevious<CR>
+nnoremap <C-Tab> :tabnext<CR>
+
+" Set up ConqueTerm
 command Ct execute "ConqueTermVSplit bash"
+command Cht execute "ConqueTermSplit bash"
 command Cct execute "ConqueTerm bash"
 
 filetype plugin on
@@ -90,6 +96,20 @@ nnoremap <C-y> "+y
 vnoremap <C-y> "+y
 nnoremap <C-p> "+gP
 vnoremap <C-p> "+gP
+
+autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+
+" Close all open buffers on entering a window if the only
+" buffer that's left is the NERDTree buffer
+function! s:CloseIfOnlyNerdTreeLeft()
+  if exists("t:NERDTreeBufName")
+    if bufwinnr(t:NERDTreeBufName) != -1
+      if winnr("$") == 1
+        q
+      endif
+    endif
+  endif
+endfunction
 
 " Set colors
 set t_Co=256 " Enable 256-color palette
