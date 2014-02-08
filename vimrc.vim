@@ -59,8 +59,8 @@ set nu
 "map <C-l> <C-w>l
 
 " Tab navigation like Chrome
-nnoremap <S-C-Tab> :tabprevious<CR>
-nnoremap <C-Tab> :tabnext<CR>
+" nnoremap <S-C-Tab> :tabprevious<CR>
+" nnoremap <C-Tab> :tabnext<CR>
 
 " Set up ConqueTerm
 command Ct execute "ConqueTermVSplit bash"
@@ -91,15 +91,14 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>  :
 
-"Copy-paste from system clipboard
-" nnoremap <C-y> "+y
-" vnoremap <C-y> "+y
-" nnoremap <C-p> "+gP
-" vnoremap <C-p> "+gP
+" Copy-paste from system clipboard
+nnoremap <C-y> "+y
+vnoremap <C-y> "+y
+nnoremap <C-p> "+gP
+vnoremap <C-p> "+gP
 
-" Replaced above with the following to use the X clipboard
-" all the time
-set clipboard=unnamedplus
+" Use system clipboard
+" set clipboard=unnamedplus
 
 "if exists('$TMUX')
 "  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
@@ -152,3 +151,32 @@ syntax enable
 set background=dark
 colorscheme solarized
 " colorscheme badwolf
+"
+
+" Add support for golang
+" Clear filetype flags before changing runtimepath to force Vim to reload
+filetype off
+filetype plugin indent off
+set runtimepath+=/usr/local/go/misc/vim
+filetype plugin indent on
+syntax on
+
+" Statusline
+" hi User1 ctermbg=green ctermfg=red   
+" hi User2 ctermbg=red   ctermfg=blue 
+" hi User3 ctermbg=blue  ctermfg=green
+
+set laststatus=2 
+set statusline=   " clear the statusline for when vimrc is reloaded
+set statusline=%t       "tail of the filename
+" set statusline=%-0.100F "full path, left-aligned 0-100 chars
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%h      "help file flag
+set statusline+=%m      "modified flag
+set statusline+=%r      "read only flag
+set statusline+=%y      "filetype
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
