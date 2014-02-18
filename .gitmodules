@@ -13,6 +13,6 @@
 [submodule "bundle/ctrlp"]
 	path = bundle/ctrlp
 	url = https://github.com/kien/ctrlp.vim.git
-[submodule "nerdtree"]
-	path = nerdtree
+[submodule "bundle/nerdT"]
+	path = bundle/nerdT
 	url = https://github.com/scrooloose/nerdtree.git
