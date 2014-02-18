@@ -7,3 +7,6 @@
 [submodule "bundle/Conque"]
 	path = bundle/Conque
 	url = https://github.com/carlobaldassi/ConqueTerm
+[submodule "bundle/vim-addon-mw-utils"]
+	path = bundle/vim-addon-mw-utils
+	url = https://github.com/vim-scripts/vim-addon-mw-utils.git
