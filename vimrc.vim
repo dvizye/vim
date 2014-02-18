@@ -1,14 +1,14 @@
-set nocompatible 
+set nocompatible
 
 " Plugins {{{
 " Pathogen
 call pathogen#infect()
 call pathogen#helptags()
 
- 
+
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
- 
+
 " Nerdtree
 " autocmd VimEnter * NERDTree
 " autocmd VimEnter * wincmd p
@@ -147,7 +147,7 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
 " Set colors
 set t_Co=256 " Enable 256-color palette
-syntax enable 
+syntax enable
 set background=dark
 colorscheme solarized
 " colorscheme badwolf
@@ -162,11 +162,11 @@ filetype plugin indent on
 syntax on
 
 " Statusline
-" hi User1 ctermbg=green ctermfg=red   
-" hi User2 ctermbg=red   ctermfg=blue 
+" hi User1 ctermbg=green ctermfg=red
+" hi User2 ctermbg=red   ctermfg=blue
 " hi User3 ctermbg=blue  ctermfg=green
 
-set laststatus=2 
+set laststatus=2
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline=%t       "tail of the filename
 " set statusline=%-0.100F "full path, left-aligned 0-100 chars
