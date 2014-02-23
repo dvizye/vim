@@ -87,6 +87,13 @@ filetype plugin on
 set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
+" Jedi options
+autocmd FileType python setlocal completeopt-=preview
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#documentation_command = "K"
+
 "Define map leader to be space key
 let mapleader = " "
 let g:mapleader = " "
