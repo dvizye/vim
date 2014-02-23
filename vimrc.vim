@@ -159,7 +159,8 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 set t_Co=256 " Enable 256-color palette
 syntax enable
 set background=dark
-colorscheme solarized
+" colorscheme solarized
+colorscheme mustang
 " colorscheme badwolf
 "
 
