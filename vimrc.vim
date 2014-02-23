@@ -2,6 +2,9 @@ set nocompatible
 
 " Plugins {{{
 " Pathogen
+" To disable a plugin, add it's bundle name to the following list
+let g:pathogen_disabled = []
+" call add(g:pathogen_disabled, 'supertab')
 call pathogen#infect()
 call pathogen#helptags()
 
