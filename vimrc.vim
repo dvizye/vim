@@ -70,6 +70,9 @@ command Ct execute "ConqueTermVSplit bash"
 command Cht execute "ConqueTermSplit bash"
 command Cct execute "ConqueTerm bash"
 
+" Remove underscore from keywords for navigation
+set iskeyword-=_
+
 filetype plugin on
 
 " IMPORTANT: grep will sometimes skip displaying the file name if you
