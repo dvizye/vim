@@ -55,6 +55,23 @@ set ic
 set scs
 set nu
 
+" Allow gnome-term to recognize Alt
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set ttimeout ttimeoutlen=50
+
+" Delete/insert blank line below/above, sorry for weird key mappings,
+" correspond to Dvorak home row
+nnoremap <silent><A-n> m`:silent +g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-d> m`:silent -g/\m^\s*$/d<CR>``:noh<CR>
+nnoremap <silent><A-h> :set paste<CR>m`o<Esc>``:set nopaste<CR>
+nnoremap <silent><A-t> :set paste<CR>m`O<Esc>``:set nopaste<CR>
+
 " Window management shortcuts
 "map <C-h> <C-w>h
 "map <C-j> <C-w>j
@@ -62,8 +79,9 @@ set nu
 "map <C-l> <C-w>l
 
 " Tab navigation like Chrome
-" nnoremap <S-C-Tab> :tabprevious<CR>
+nnoremap <S-C-Tab> :tabprevious<CR>
 " nnoremap <C-Tab> :tabnext<CR>
+" nnoremap <A-]> :!echo 'hello' <CR>
 
 " Set up ConqueTerm
 command Ct execute "ConqueTermVSplit bash"
