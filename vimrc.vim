@@ -47,7 +47,6 @@ set tabstop=4 " Set tabs to 3 spaces to match python "
 set shiftwidth=4
 set expandtab
 set autoindent
-set mouse=a
 
 filetype on
 filetype indent on
@@ -117,13 +116,13 @@ nmap <leader>q :q<cr>
 nmap <leader>  :
 
 " Copy-paste from system clipboard
-nnoremap <C-y> "+y
-vnoremap <C-y> "+y
-nnoremap <C-p> "+gP
-vnoremap <C-p> "+gP
+nnoremap <C-y> "*y
+vnoremap <C-y> "*y
+nnoremap <C-p> "*gP
+vnoremap <C-p> "*gP
 
 " Use system clipboard
-" set clipboard=unnamedplus
+set clipboard=unnamed
 
 "if exists('$TMUX')
 "  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
