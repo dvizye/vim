@@ -9,7 +9,9 @@ let g:pathogen_disabled = []
 call pathogen#infect()
 call pathogen#helptags()
 
+let g:syntastic_python_checkers = ['pylint']
 
+set mouse=a
 set statusline=%<\ %n:%f\ %m%r%y%=%-35.(line:\ %l\ of\ %L,\ col:\ %c%V\ (%P)%)
 filetype plugin indent on
 
@@ -54,14 +56,6 @@ filetype indent on
 set ic
 set scs
 set nu
-
-" Allow gnome-term to recognize Alt
-let c='a'
-while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
-endw
 
 set ttimeout ttimeoutlen=50
 
@@ -185,6 +179,21 @@ filetype plugin indent off
 set runtimepath+=/usr/local/go/misc/vim
 filetype plugin indent on
 syntax on
+
+" Avoid having to manually set paste
+if &term =~ "xterm.*"
+    let &t_ti = &t_ti . "\e[?2004h"
+    let &t_te = "\e[?2004l" . &t_te
+    function XTermPasteBegin(ret)
+        set pastetoggle=<Esc>[201~
+        set paste
+        return a:ret
+    endfunction
+    map <expr> <Esc>[200~ XTermPasteBegin("i")
+    imap <expr> <Esc>[200~ XTermPasteBegin("")
+    cmap <Esc>[200~ <nop>
+    cmap <Esc>[201~ <nop>
+endif
 
 " Statusline
 " hi User1 ctermbg=green ctermfg=red
