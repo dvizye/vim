@@ -52,3 +52,6 @@
 [submodule "bundle/bundle/command-t"]
 	path = bundle/bundle/command-t
 	url = git://git.wincent.com/command-t.git
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
