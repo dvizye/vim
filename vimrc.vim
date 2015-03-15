@@ -38,7 +38,7 @@ set nu
 set ttimeout ttimeoutlen=50
 
 " Remove underscore from keywords for navigation
-set iskeyword-=_
+" set iskeyword-=_
 
 
 " Set up NerdTree
@@ -156,3 +156,6 @@ set statusline+=%=      "left/right separator
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
+
+" temp
+set tags=./tags,~/Dropbox/Projects/trajopt
