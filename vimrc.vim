@@ -20,7 +20,6 @@ nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 
-
 set mouse=a
 filetype plugin indent on
 set tabstop=4 " Set tabs to 3 spaces to match python "
@@ -140,7 +139,9 @@ if &term =~ "xterm.*"
     cmap <Esc>[201~ <nop>
 endif
 
-" Set status line
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-j>"
 
 set laststatus=2
 set statusline=   " clear the statusline for when vimrc is reloaded
@@ -159,3 +160,4 @@ set statusline+=\ %P    "percent through file
 
 " temp
 set tags=./tags,~/Dropbox/Projects/trajopt
+set tags+=tags;/
