@@ -89,7 +89,12 @@ set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Use system clipboard
-set clipboard=unnamed
+if has('unix')
+    set clipboard=unnamedplus
+else
+    set clipboard=unnamed
+endif
+
 " Copy-paste from system clipboard
 nnoremap <C-y> "*y
 vnoremap <C-y> "*y
