@@ -14,11 +14,16 @@ let g:mapleader = " "
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>  :
+set incsearch
+set hlsearch!
 
 "Tags
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
+" Splits
+noremap <leader>\ :vsp<cr>
+noremap <leader>- :sp<cr>
 
 set mouse=a
 filetype plugin indent on
@@ -32,16 +37,14 @@ filetype indent on
 
 set ic
 set scs
-set nu
+" set nu
+set relativenumber
 
 set ttimeout ttimeoutlen=50
 
 " Remove underscore from keywords for navigation
 " set iskeyword-=_
 
-
-" Set up NerdTree
-command Nerd execute "NERDTreeToggle"
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -75,6 +78,7 @@ if has("wildmenu")
     set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
     set wildignore+=.DS_Store,.git,.hg,.svn
     set wildignore+=*~,*.swp,*.tmp
+    set wildignore+=*.zip,*.exe,*.class,*.jar
 endif
 
 
@@ -158,6 +162,25 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
+"CtrlP
+let g:ctrlp_max_files=1000
+let g:ctrlp_working_path_mode = 'a' " Search under CWD
+let g:ctrlp_root_markers = ['.gitignore']
+let g:ctrlp_extensions = ['mixed']
+
+" Set up NerdTree
+command Nerd execute "NERDTreeToggle"
+noremap \\ :NERDTreeToggle<CR>
+let NERDTreeBookmarksFile=expand("~/.vim/NERDTreeBookmarks")
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+
 " temp
 set tags=./tags,~/Dropbox/Projects/trajopt
 set tags+=tags;/
+
+" Resize splits quickly
+nnoremap <silent> <Leader>> :vertical resize +10 <CR>
+nnoremap <silent> <Leader>< :vertical resize -10 <CR>
+nnoremap <silent> <Leader> <Up> :resize -10 <CR>
+nnoremap <silent> <Leader> <Down> :resize +10 <CR>
