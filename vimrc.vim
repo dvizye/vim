@@ -7,6 +7,11 @@ let g:pathogen_disabled = []
 call pathogen#infect()
 call pathogen#helptags()
 
+" Pane switching
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 "Define map leader to be space key
 let mapleader = " "
@@ -15,7 +20,7 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 nmap <leader>  :
 set incsearch
-set hlsearch!
+set nohlsearch
 
 "Tags
 nnoremap <leader>. :CtrlPTag<cr>
