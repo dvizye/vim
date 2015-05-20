@@ -93,10 +93,10 @@ set ofu=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 " Use system clipboard
-if has('unix')
-    set clipboard=unnamedplus
-else
+if has('macunix')
     set clipboard=unnamed
+else
+    set clipboard=unnamedplus
 endif
 
 " Copy-paste from system clipboard
