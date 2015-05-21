@@ -185,6 +185,10 @@ let NERDTreeBookmarksFile=expand("~/.vim/NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 
+" Fugitive mappings
+nnoremap W :Gwrite<CR>
+nnoremap C :Gcommit<CR>
+
 " temp
 set tags=./tags,~/Dropbox/Projects/trajopt
 set tags+=tags;/
