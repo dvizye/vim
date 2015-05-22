@@ -21,6 +21,7 @@ nmap <leader>q :q<cr>
 nmap <leader>  :
 set incsearch
 set nohlsearch
+set backspace=indent,eol,start
 
 "Tags
 nnoremap <leader>. :CtrlPTag<cr>
@@ -193,6 +194,9 @@ nnoremap C :Gcommit<CR>
 set tags=./tags,~/Dropbox/Projects/trajopt
 set tags+=tags;/
 
+" Show full path quickly
+nnoremap Path execute "echo expand('%:p')"
+command Nerd execute "NERDTreeToggle"
 " Resize splits quickly
 nnoremap <silent> <Leader>> :vertical resize +10 <CR>
 nnoremap <silent> <Leader>< :vertical resize -10 <CR>
