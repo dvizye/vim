@@ -22,9 +22,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "bundle/whitespace"]
-	path = bundle/whitespace
-	url = https://github.com/bronson/vim-trailing-whitespace.git
 [submodule "bundle/indent-guides"]
 	path = bundle/indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
