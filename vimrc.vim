@@ -31,6 +31,10 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 noremap <leader>\ :vsp<cr>
 noremap <leader>- :sp<cr>
 
+" Have manual folds saved and reopened
+au BufWinLeave * mkview
+au BufWinEnter * silent loadview
+
 set mouse=a
 filetype plugin indent on
 set tabstop=4 " Set tabs to 3 spaces to match python "
