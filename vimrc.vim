@@ -31,9 +31,10 @@ nnoremap <silent> <Leader>b :TagbarToggle<CR>
 noremap <leader>\ :vsp<cr>
 noremap <leader>- :sp<cr>
 
-" Have manual folds saved and reopened
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
+" Have manual folds saved and reopened (use ?* to prevent matching empty
+" filenames)
+au BufWinLeave ?* mkview
+au BufWinEnter ?* silent loadview
 
 set mouse=a
 filetype plugin indent on
@@ -52,6 +53,7 @@ set relativenumber
 
 set ttimeout ttimeoutlen=50
 
+nnoremap <leader>t :tabnew<CR>
 " Remove underscore from keywords for navigation
 " set iskeyword-=_
 
@@ -199,8 +201,7 @@ set tags=./tags,~/Dropbox/Projects/trajopt
 set tags+=tags;/
 
 " Show full path quickly
-nnoremap Path execute "echo expand('%:p')"
-command Nerd execute "NERDTreeToggle"
+command Path execute "echo expand('%:p')"
 " Resize splits quickly
 nnoremap <silent> <Leader>> :vertical resize +10 <CR>
 nnoremap <silent> <Leader>< :vertical resize -10 <CR>
