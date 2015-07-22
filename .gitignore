@@ -1,1 +1,3 @@
 .old_vim/
+.DS_Store/
+bundle/
