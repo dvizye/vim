@@ -34,6 +34,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+nnoremap H ^
+nnoremap L $
+
 "Define map leader to be space key
 let mapleader = " "
 let g:mapleader = " "
