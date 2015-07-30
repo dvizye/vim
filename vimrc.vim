@@ -252,8 +252,8 @@ noremap <c-a> :Latex<cr>
 " Resize splits quickly
 nnoremap <silent> <Leader>> :vertical resize +10 <CR>
 nnoremap <silent> <Leader>< :vertical resize -10 <CR>
-nnoremap <silent> <Leader> <Up> :resize -10 <CR>
-nnoremap <silent> <Leader> <Down> :resize +10 <CR>
+nnoremap <silent> <Leader><Down> :resize -10 <CR>
+nnoremap <silent> <Leader><Up> :resize +10 <CR>
 
 " Ack.vim uses Ag
 if executable('ag')
