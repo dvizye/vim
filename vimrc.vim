@@ -21,6 +21,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'junegunn/vim-easy-align'
 
 " " Pathogen
 " " To disable a plugin, add it's bundle name to the following list
@@ -58,6 +60,10 @@ noremap <leader>- :sp<cr>
 
 noremap <C-y> :set paste!<cr>
 
+" Opening newlines in normal mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
 " Have manual folds saved and reopened (use ?* to prevent matching empty
 " filenames)
 " au BufWinLeave ?* mkview
@@ -73,11 +79,17 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+endif
+
 filetype on
 filetype indent on
 
 set ic
 set scs
+set scrolloff=5
 
 " Hybrid numbering
 set nu rnu
@@ -226,6 +238,9 @@ let NERDTreeBookmarksFile=expand("~/.vim/NERDTreeBookmarks")
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
 
+" Easy align interactive
+vnoremap <silent> <Enter> :EasyAlign<cr>
+
 " Fugitive mappings
 command W execute "Gwrite"
 command C execute "Gcommit"
@@ -238,6 +253,7 @@ set tags+=tags;/
 command Path execute "echo expand('%:p')"
 
 command Snip execute "UltiSnipsEdit"
+command White execute "FixWhitespace"
 " Compile Latex
 " command Latex execute "silent !pdflatex % > /dev/null && open %:r.pdf > /dev/null 2>&1 &" | redraw!
 command Latex execute "silent !pdflatex %" | redraw!
