@@ -5,7 +5,7 @@ if [[ ! -d "$HOME/.vim" ]]; then
     mkdir $DIR/undodir
     # For IntelliJ vim-mode
     # ln -s $DIR/vimrc.vim ~/.ideavimrc
-    "Symlinked vim configuration"
+    echo "Symlinked vim configuration"
 else
     echo "Vim configuration already exists"
 fi
