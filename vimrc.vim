@@ -24,6 +24,10 @@ Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'junegunn/vim-easy-align'
 
+if filereadable(expand('~/.vimrc.orig'))
+    source ~/.vimrc.orig
+endif
+
 " " Pathogen
 " " To disable a plugin, add it's bundle name to the following list
 " let g:pathogen_disabled = []
@@ -226,10 +230,19 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 
 "CtrlP
-let g:ctrlp_max_files=1000
+let g:ctrlp_max_files=1000000
 let g:ctrlp_working_path_mode = 'a' " Search under CWD
 let g:ctrlp_root_markers = ['.gitignore']
 let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ --ignore .git5_specs
+      \ --ignore review
+      \ -g ""'
 
 " Set up NerdTree
 command Nerd execute "NERDTreeToggle"
