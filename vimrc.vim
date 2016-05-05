@@ -18,7 +18,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'tomtom/tlib_vim'
 Bundle 'scrooloose/syntastic'
 " Bundle 'Valloric/YouCompleteMe'
-" Bundle 'SirVer/ultisnips'
+Bundle 'SirVer/ultisnips'
 Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
@@ -39,6 +39,11 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+let g:UltiSnips#SaveLastVisualSelection = "<c-l>"
 
 nnoremap H ^
 nnoremap L $
@@ -210,10 +215,6 @@ if &term =~ "xterm.*"
     cmap <Esc>[201~ <nop>
 endif
 
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-j>"
-
 set laststatus=2
 set statusline=   " clear the statusline for when vimrc is reloaded
 set statusline=%t       "tail of the filename
@@ -243,6 +244,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore .git5_specs
       \ --ignore review
       \ -g ""'
+let g:ctrlp_follow_symlinks=1
 
 " Set up NerdTree
 command Nerd execute "NERDTreeToggle"
