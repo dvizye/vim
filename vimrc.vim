@@ -292,4 +292,6 @@ if executable('ag')
 endif
 " Turn off syntastic by default
 let g:syntastic_mode_map = {"mode": "passive"}
+" Include angle brackets as enclosing symbols
+set matchpairs+=<:>
 command Check execute "SyntasticCheck"
