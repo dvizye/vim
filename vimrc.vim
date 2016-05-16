@@ -266,6 +266,8 @@ set tags+=tags;/
 
 " Show full path quickly
 command Path execute "echo expand('%:p')"
+" Copy filepath
+nnoremap cp :let @+ = expand('%:p')<cr>
 
 command Snip execute "UltiSnipsEdit"
 command White execute "FixWhitespace"
@@ -292,6 +294,7 @@ if executable('ag')
 endif
 " Turn off syntastic by default
 let g:syntastic_mode_map = {"mode": "passive"}
+
 " Include angle brackets as enclosing symbols
 set matchpairs+=<:>
 command Check execute "SyntasticCheck"
