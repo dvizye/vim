@@ -23,6 +23,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'mileszs/ack.vim'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'junegunn/vim-easy-align'
+Bundle 'chrisbra/Recover.vim'
 
 if filereadable(expand('~/.vimrc.orig'))
     source ~/.vimrc.orig
