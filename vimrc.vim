@@ -92,7 +92,7 @@ augroup line_return
 augroup END
 
 " --- Clipboard ---
-Use system clipboard
+" Use system clipboard
 if has('macunix')
     set clipboard=unnamed
 else
