@@ -17,11 +17,12 @@ endif
 " --- Load Vundle Plugins ---
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
+" Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'ConradIrwin/vim-bracketed-paste'
 Bundle 'SirVer/ultisnips'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'chrisbra/Recover.vim'
-" Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'croaker/mustang-vim'
 Bundle 'dzy689/vim-addon-mw-utils'
 Bundle 'honza/vim-snippets'
@@ -37,7 +38,6 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
-
 " Disabled
 " Bundle 'Valloric/YouCompleteMe'
 
@@ -124,6 +124,9 @@ set incsearch
 set nohlsearch
 set backspace=indent,eol,start
 set ic " ignore case
+
+" --- Sort ---
+vnoremap <leader>s :sort<CR>
 
 " --- Paths ---
 " Show full path quickly
