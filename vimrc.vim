@@ -39,7 +39,7 @@ Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 " Disabled
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 " --- Basic settings ---
 nmap <leader>w :w!<cr>
@@ -228,6 +228,7 @@ let g:UltiSnips#SaveLastVisualSelection = "<c-l>"
 
 " -- Whitespace --
 command White execute "FixWhitespace"
+autocmd BufWritePre * :White
 
 " --- YCM ---
 " Close YCM's documentation window
