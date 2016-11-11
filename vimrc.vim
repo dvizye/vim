@@ -46,6 +46,7 @@ nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 set mouse=a
 inoremap <C-c> <ESC>
+nnoremap <C-CR> :redraw!<cr>
 " Timeout options for partial command input
 set ttimeout ttimeoutlen=50
 
