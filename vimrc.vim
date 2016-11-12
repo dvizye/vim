@@ -114,6 +114,10 @@ set iskeyword-=_
 noremap <leader>\ :vsp<cr>
 noremap <leader>- :sp<cr>
 
+" Inserting empty lines
+noremap <leader>O :call append(line('.')-1, '')<cr>
+noremap <leader>o :call append(line('.'), '')<cr>
+
 " Pane switching
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
