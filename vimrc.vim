@@ -113,6 +113,8 @@ set iskeyword-=_
 " Splits
 noremap <leader>\ :vsp<cr>
 noremap <leader>- :sp<cr>
+" Edit within dir
+nmap <leader>e :vsp %:p:h
 
 " Inserting empty lines
 noremap <leader>O :call append(line('.')-1, '')<cr>
