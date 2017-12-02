@@ -3,9 +3,11 @@ set nocompatible
 let mapleader = " "
 let g:mapleader = " "
 nmap <leader>  :
-set shiftwidth=4
+set shiftwidth=2
 set expandtab
 set autoindent
+" Turn off auto word wrapping
+set textwidth=0
 filetype plugin indent on
 
 " --- Source other files ---
@@ -17,7 +19,7 @@ endif
 " --- Load Vundle Plugins ---
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
-" Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'ConradIrwin/vim-bracketed-paste'
 Bundle 'SirVer/ultisnips'
 Bundle 'altercation/vim-colors-solarized'
@@ -35,18 +37,20 @@ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
-Bundle 'tpope/vim-commentary'
+" Bundle 'tpope/vim-commentary'
+Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
 " Disabled
-Bundle 'Valloric/YouCompleteMe'
+" Bundle 'Valloric/YouCompleteMe'
 
 " --- Basic settings ---
 nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 set mouse=a
 inoremap <C-c> <ESC>
-nnoremap <C-CR> :redraw!<cr>
+nnoremap <leader>r :redraw!<cr>
 " Timeout options for partial command input
 set ttimeout ttimeoutlen=50
 
@@ -107,9 +111,6 @@ nnoremap L $
 " Include angle brackets as enclosing symbols
 set matchpairs+=<:>
 
-" Remove underscore from keywords for navigation
-set iskeyword-=_
-
 " Splits
 noremap <leader>\ :vsp<cr>
 noremap <leader>- :sp<cr>
@@ -128,9 +129,10 @@ nnoremap <c-l> <c-w>l
 
 " --- Search ---
 set incsearch
-set nohlsearch
+set hlsearch
 set backspace=indent,eol,start
 set ic " ignore case
+set smartcase "Ignore case in search except when query has capital letter
 
 function! RangeSearch(direction)
   call inputsave()
@@ -238,7 +240,7 @@ command Check execute "SyntasticCheck"
 
 " -- Tags --
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <silent> <Leader>b :TagbarToggle<CR>
+nnoremap <silent> <Leader>b :TagbarOpenAutoClose<CR>
 
 " -- Ultisnips --
 command Snip execute "UltiSnipsEdit"
@@ -257,3 +259,6 @@ autocmd BufWritePre * :White
 let g:ycm_autoclose_preview_window_after_completion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+" bind K to grep word under cursor
+nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
+" :cw<CR>
