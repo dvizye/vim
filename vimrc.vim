@@ -37,13 +37,13 @@ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tlib_vim'
-" Bundle 'tpope/vim-commentary'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
-" Disabled
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'google/vim-maktaba'
+Plugin 'davisking/vim-bazel'
 
 " --- Basic settings ---
 nmap <leader>w :w!<cr>
@@ -193,7 +193,7 @@ endif
 
 " -- CtrlP --
 let g:ctrlp_max_files=1000000
-let g:ctrlp_working_path_mode = 'a' " Search under CWD
+let g:ctrlp_working_path_mode = 'ra' " Search under CWD
 let g:ctrlp_root_markers = ['.gitignore']
 let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
@@ -257,8 +257,14 @@ autocmd BufWritePre * :White
 " --- YCM ---
 " Close YCM's documentation window
 let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 
 " bind K to grep word under cursor
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
-" :cw<CR>
+
+noremap <C-b> :make<CR>
+
+
+
