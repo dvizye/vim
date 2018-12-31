@@ -170,21 +170,6 @@ if has("wildmenu")
     set wildignore+=*.zip,*.exe,*.class,*.jar
 endif
 
-" --- Statusline (Deprecated in favor of powerline) ---
-" set statusline=   " clear the statusline for when vimrc is reloaded
-" set statusline=%t       "tail of the filename
-" set statusline=%-0.100F "full path, left-aligned 0-100 chars
-" set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
-" set statusline+=%{&ff}] "file format
-" set statusline+=%h      "help file flag
-" set statusline+=%m      "modified flag
-" set statusline+=%r      "read only flag
-" set statusline+=%y      "filetype
-" set statusline+=%=      "left/right separator
-" set statusline+=%c,     "cursor column
-" set statusline+=%l/%L   "cursor line/total lines
-" set statusline+=\ %P    "percent through file
-
 " --- Plugins ---
 " -- Ack.vim --
 " Use Ag
