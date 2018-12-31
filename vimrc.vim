@@ -19,29 +19,30 @@ endif
 " --- Load Vundle Plugins ---
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'ConradIrwin/vim-bracketed-paste'
-Bundle 'SirVer/ultisnips'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'chrisbra/Recover.vim'
-Bundle 'croaker/mustang-vim'
-Bundle 'dzy689/vim-addon-mw-utils'
-Bundle 'honza/vim-snippets'
-Bundle 'junegunn/vim-easy-align'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tomtom/tlib_vim'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'SirVer/ultisnips'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'chrisbra/Recover.vim'
+Plugin 'croaker/mustang-vim'
+Plugin 'dzy689/vim-addon-mw-utils'
+Plugin 'honza/vim-snippets'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tomtom/tlib_vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'google/vim-maktaba'
 Plugin 'davisking/vim-bazel'
 
@@ -255,9 +256,8 @@ command White execute "FixWhitespace"
 autocmd BufWritePre * :White
 
 " --- YCM ---
-" Close YCM's documentation window
-let g:ycm_autoclose_preview_window_after_completion=1
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_insertion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
