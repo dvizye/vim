@@ -42,15 +42,21 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Plugin 'ervandew/supertab'
 Bundle 'Valloric/YouCompleteMe'
-Plugin 'google/vim-maktaba'
-Plugin 'davisking/vim-bazel'
+Bundle 'google/vim-maktaba'
+Bundle 'davisking/vim-bazel'
 
 " --- Basic settings ---
+nmap <leader>W :wq<cr>
 nmap <leader>w :w!<cr>
+nmap <leader>! :q!<cr>
 nmap <leader>q :q<cr>
+nmap <leader>t :tabnew<cr>
 set mouse=a
 inoremap <C-c> <ESC>
 nnoremap <leader>r :redraw!<cr>
+" Copy current filename to the unnamed register.
+nnoremap cp :let @" = expand("%")<cr>
+nnoremap <leader>cw :cwindow<cr>
 " Timeout options for partial command input
 set ttimeout ttimeoutlen=50
 
@@ -64,9 +70,9 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 " Highlight cursor
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
-" Highlight 80 chars
+" Highlight 100 chars
 if (exists('+colorcolumn'))
-    set colorcolumn=80
+    set colorcolumn=100
     highlight ColorColumn ctermbg=9
 endif
 " 5 lines shown after cursor
@@ -265,6 +271,4 @@ nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR><CR>:cw<CR>
 
 noremap <C-b> :make<CR>
-
-
 
