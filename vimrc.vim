@@ -184,6 +184,7 @@ if executable('ag')
 endif
 
 " -- CtrlP --
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_max_files=1000000
 let g:ctrlp_working_path_mode = 'ra' " Search under CWD
 let g:ctrlp_root_markers = ['.gitignore']
@@ -248,6 +249,7 @@ autocmd BufWritePre * :White
 
 " --- YCM ---
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/third_party/ycmd/examples/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion=1
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
