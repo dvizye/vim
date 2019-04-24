@@ -55,6 +55,7 @@ nmap <leader>t :tabnew<cr>
 set mouse=a
 inoremap <C-c> <ESC>
 nnoremap <leader>r :redraw!<cr>
+set autochdir
 " Copy current filename to the unnamed register.
 nnoremap cp :let @" = expand("%")<cr>
 nnoremap <leader>cw :cwindow<cr>
