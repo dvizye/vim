@@ -19,6 +19,7 @@ endif
 " --- Load Vundle Plugins ---
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
+" Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -34,7 +35,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'mileszs/ack.vim'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tomtom/tlib_vim'
@@ -45,6 +45,7 @@ Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'google/vim-maktaba'
 Plugin 'davisking/vim-bazel'
+Plugin 'othree/xml.vim'
 
 " --- Basic settings ---
 nmap <leader>W :wq<cr>
@@ -55,7 +56,6 @@ nmap <leader>t :tabnew<cr>
 set mouse=a
 inoremap <C-c> <ESC>
 nnoremap <leader>r :redraw!<cr>
-set autochdir
 " Copy current filename to the unnamed register.
 nnoremap cp :let @" = expand("%")<cr>
 nnoremap <leader>cw :cwindow<cr>
@@ -80,7 +80,31 @@ endif
 " 5 lines shown after cursor
 set scrolloff=5
 
+" Statusline from https://shapeshed.com/vim-statuslines/
 set laststatus=2  " show status line for all windows
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+" function! StatuslineGit()
+"   let l:branchname = GitBranch()
+"   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+" endfunction
+
+set statusline=
+set statusline+=%#PmenuSel#
+" set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
 
 " Set colors
 set t_Co=256 " Enable 256-color palette
@@ -200,6 +224,7 @@ let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
       \ --ignore review
       \ -g ""'
 let g:ctrlp_follow_symlinks=1
+let g:ctrlp_mruf_relative=1
 
 " -- Easy align --
 vnoremap <silent> <Enter> :EasyAlign<cr>
