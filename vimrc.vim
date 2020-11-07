@@ -46,6 +46,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'google/vim-maktaba'
 Plugin 'davisking/vim-bazel'
 Plugin 'othree/xml.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " --- Basic settings ---
 nmap <leader>W :wq<cr>
@@ -186,7 +188,7 @@ vnoremap <leader>s :sort<CR>
 
 " --- Paths ---
 " Show full path quickly
-command Path execute "echo expand('%:p')"
+command Path execute "echo expand('%:p') | let @+ = expand('%:p')"
 " Copy filepath
 nnoremap cp :let @+ = expand('%:p')<cr>
 
